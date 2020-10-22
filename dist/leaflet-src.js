@@ -1,5 +1,5 @@
 /* @preserve
- * Leaflet 1.7.1+master.b9eac8a, a JS library for interactive maps. http://leafletjs.com
+ * Leaflet 1.7.1+build.09f1fee, a JS library for interactive maps. http://leafletjs.com
  * (c) 2010-2019 Vladimir Agafonkin, (c) 2010-2011 CloudMade
  */
 
@@ -9,7 +9,7 @@
   (factory((global.L = {})));
 }(this, (function (exports) { 'use strict';
 
-  var version = "1.7.1+master.bc918d4b";
+  var version = "1.7.1+build.bc918d4b";
 
   /*
    * @namespace Util
@@ -3622,10 +3622,7 @@
 
   		if (options.getCoordinates) {
   			if (options.watch) {
-  				options.getCoordinates(options)
-  					.then(function (locationWatchId) {
-  						this._locationWatchId = locationWatchId;
-  					});
+  				this._locationWatchId = options.getCoordinates(options, onResponse);
   			} else {
   				options.getCoordinates(options)
   					.then(function (pos) {
